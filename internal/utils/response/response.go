@@ -14,8 +14,9 @@ type Response struct {
 }
 
 // Ok 成功返回
-func (r *Response) Ok(data interface{}) *Response {
+func (r *Response) Ok(msg string,data interface{}) *Response {
 	r.Data = data
+	r.Msg = msg
 	return r
 }
 
