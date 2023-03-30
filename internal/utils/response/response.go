@@ -1,5 +1,9 @@
 package response
 
+import (
+	"github.com/fennay/tgo/internal/utils/ecode"
+)
+
 // Resp 返回
 type Resp interface {
 	Ok() *Response
@@ -17,6 +21,7 @@ type Response struct {
 func (r *Response) Ok(msg string,data interface{}) *Response {
 	r.Data = data
 	r.Msg = msg
+	r.Code = ecode.Ok
 	return r
 }
 
