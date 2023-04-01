@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/fennay/tgo/internal/middleware"
-	resp "github.com/fennay/tgo/internal/utils/response"
+	"github.com/fennay/tgo/internal/utils/response"
 	"github.com/gin-gonic/gin"
 )
 
@@ -20,8 +20,7 @@ func Init(engine *gin.Engine) {
 	{
 		v1User.GET("", func(c *gin.Context) {
 			// 接口返回测试
-			response := &resp.Response{}
-			response.Ok("", "")
+			response.Ok(c, "11111111", "222222222")
 			return
 		})
 	}

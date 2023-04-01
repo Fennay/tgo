@@ -2,6 +2,8 @@ package response
 
 import (
 	"github.com/fennay/tgo/internal/utils/ecode"
+	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 // Resp 返回
@@ -18,17 +20,24 @@ type Response struct {
 }
 
 // Ok 成功返回
-func (r *Response) Ok(msg string,data interface{}) *Response {
-	r.Data = data
-	r.Msg = msg
-	r.Code = ecode.Ok
-	return r
+func Ok(c *gin.Context, msg string, data interface{}) {
+	body := &Response{
+		Code: ecode.Ok,
+		Msg:  msg,
+		Data: data,
+	}
+	c.AbortWithStatusJSON(http.StatusOK, body)
+	return
 }
 
 // Fail 失败返回
-func (r *Response) Fail(code int, msg string, data interface{}) *Response {
-	r.Code = code
-	r.Msg = msg
-	r.Data = data
-	return r
+func Fail(c *gin.Context, code int, msg string, data interface{}) {
+
+	body := &Response{
+		Code: code,
+		Msg:  msg,
+		Data: data,
+	}
+	c.AbortWithStatusJSON(http.StatusOK, body)
+	return
 }

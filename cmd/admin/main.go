@@ -15,7 +15,7 @@ func main() {
 	adminRouter.Init(g)
 
 	// 启动服务
-	err := g.Run("http://127.0.0.1:8080")
+	err := g.Run()
 	if err != nil {
 		return
 	}
