@@ -12,6 +12,7 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/pelletier/go-toml/v2 v2.0.7 // indirect
 	github.com/ugorji/go/codec v1.2.11 // indirect
+	go.uber.org/zap v1.24.0
 	golang.org/x/arch v0.3.0 // indirect
 	google.golang.org/protobuf v1.30.0 // indirect
 )
