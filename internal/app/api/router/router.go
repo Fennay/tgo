@@ -20,6 +20,9 @@ func Init(engine gin.Engine) {
 		v1User.GET("", func(c *gin.Context) {
 
 		})
+		v1User.POST("", func(c *gin.Context) {
+
+		})
 	}
 
 }
