@@ -9,8 +9,8 @@ require (
 	github.com/goccy/go-json v0.10.2 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.4 // indirect
 	github.com/mattn/go-isatty v0.0.18 // indirect
-	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/pelletier/go-toml/v2 v2.0.7 // indirect
+	github.com/spf13/viper v1.15.0
 	github.com/ugorji/go/codec v1.2.11 // indirect
 	go.uber.org/zap v1.24.0
 	golang.org/x/arch v0.3.0 // indirect
