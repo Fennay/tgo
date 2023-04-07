@@ -11,7 +11,7 @@ const (
 	fileName = "config"
 )
 
-// Config 配置项
+// ConfigS 配置项
 type ConfigS struct {
 	Http  Http
 	DB    DB
@@ -21,8 +21,9 @@ type ConfigS struct {
 
 // Http 配置
 type Http struct {
+	URL     string
 	Port    int
-	Runmode string
+	RunMode string
 }
 
 // DB 数据库
@@ -52,8 +53,8 @@ type Log struct {
 var configData *ConfigS
 
 // Init 初始化配置
-func Init(path string) {
-
+func Init(path ...string) {
+	newPath := resolvePath(path)
 	viper.SetConfigName(fileName) // 配置文件名称(无扩展名)
 	viper.SetConfigType(fileExt)  // 如果配置文件的名称中没有扩展名，则需要配置此项
 
@@ -61,8 +62,8 @@ func Init(path string) {
 	viper.AddConfigPath("./config")
 
 	// 如果自定义路径
-	if path != "" {
-		viper.AddConfigPath(path)
+	if newPath != "" {
+		viper.AddConfigPath(newPath)
 	}
 
 	err := viper.ReadInConfig() // 查找并读取配置文件
@@ -76,8 +77,24 @@ func Init(path string) {
 		panic(err)
 	}
 
+	// 设置默认值
+	if configData.Http.URL == "" {
+		configData.Http.URL = "127.0.0.1"
+	}
+	if configData.Http.Port == 0 {
+		configData.Http.Port = 8088
+	}
+
 	// 监控配置文件变化
 	viper.WatchConfig()
+}
+
+func resolvePath(path []string) string {
+	if len(path) > 0 {
+		return path[0]
+	}
+	// 如果没传递使用默认配置文件
+	return ""
 }
 
 // GetConfig 获得配置

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	adminRouter "github.com/fennay/tgo/internal/app/admin/router"
 	"github.com/fennay/tgo/internal/utils/config"
 	"github.com/gin-gonic/gin"
@@ -8,10 +9,9 @@ import (
 
 // 入口文件
 func main() {
-
 	// 初始化配置
-	config.Init("")
-	config.GetConfig()
+	config.Init()
+	conf := config.GetConfig()
 
 	// 初始化 gin
 	g := gin.New()
@@ -20,7 +20,8 @@ func main() {
 	adminRouter.Init(g)
 
 	// 启动服务
-	err := g.Run()
+	url := fmt.Sprintf("%s:%d", conf.Http.URL, conf.Http.Port)
+	err := g.Run(url)
 	if err != nil {
 		return
 	}
