@@ -1,20 +1,19 @@
 http:
   port: 8088 ## 运行端口
-  runmode: debug  ## 运行模式 debug,dev,test,release
+  runMode: debug  ## 运行模式 debug,dev,test,release
 
 db:
   dialect: mysql
-  http: http://127.0.0.1
+  url: http://127.0.0.1
   port: 3306
   database: test
   user: root
   password: 123456
 
 redis:
-  http: http://127.0.0.1
+  url: http://127.0.0.1
   port: 6379
-  database: test
-  user: root
+  db: 1
   password: 123456
 
 session:

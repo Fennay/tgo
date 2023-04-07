@@ -15,3 +15,7 @@ func Save() {
 func Delete() {
 
 }
+
+func Detail() {
+
+}
