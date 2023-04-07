@@ -5,7 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Init(engine gin.Engine) {
+func Init(engine *gin.Engine) {
 	// 开启Session
 	engine.Use(middleware.StartSession())
 
