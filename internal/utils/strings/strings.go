@@ -6,8 +6,11 @@ import (
 )
 
 const (
-	Letters       = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-	LettersAndNum = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	LettersUpper  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	LettersLower  = "abcdefghijklmnopqrstuvwxyz"
+	Num           = "0123456789"
+	Letters       = LettersLower + LettersUpper
+	LettersAndNum = LettersLower + LettersUpper + Num
 )
 
 func init() {
