@@ -18,9 +18,23 @@ func init() {
 	rand.Seed(time.Now().UnixNano())
 }
 
-// RandStringRunes 随机字符串
-func RandStringRunes(n int) string {
-	lettersRune := []rune(Letters)
+// Rand 自定义随机数
+func Rand(source string, n int) string {
+	return zyRand(source, n)
+}
+
+// RandStringWithA2z 随机字符串 [A-z]
+func RandStringWithA2z(n int) string {
+	return zyRand(Letters, n)
+}
+
+// RandNumRunes 随机获取数字
+func RandNumRunes(n int) string {
+	return zyRand(Num, n)
+}
+
+func zyRand(source string, n int) string {
+	lettersRune := []rune(source)
 	b := make([]rune, n)
 	for i := range b {
 		b[i] = lettersRune[rand.Intn(len(lettersRune))]
