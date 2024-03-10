@@ -11,8 +11,8 @@ const (
 	fileName = "config"
 )
 
-// ConfigS 配置项
-type ConfigS struct {
+// Config 配置项
+type Config struct {
 	Http  Http
 	DB    DB
 	Redis Redis
@@ -36,7 +36,7 @@ type DB struct {
 	Password string
 }
 
-// Redis redis
+// Redis redis配置
 type Redis struct {
 	URL      string
 	Port     int
@@ -50,7 +50,7 @@ type Log struct {
 	Level  string
 }
 
-var configData *ConfigS
+var configStruct *Config
 
 // Init 初始化配置
 func Init(path ...string) {
@@ -71,18 +71,18 @@ func Init(path ...string) {
 		panic(err)
 	}
 
-	//序列化
-	err = viper.Unmarshal(&configData)
+	// 序列化
+	err = viper.Unmarshal(&configStruct)
 	if err != nil {
 		panic(err)
 	}
 
 	// 设置默认值
-	if configData.Http.URL == "" {
-		configData.Http.URL = "127.0.0.1"
+	if configStruct.Http.URL == "" {
+		configStruct.Http.URL = "127.0.0.1"
 	}
-	if configData.Http.Port == 0 {
-		configData.Http.Port = 8088
+	if configStruct.Http.Port == 0 {
+		configStruct.Http.Port = 8088
 	}
 
 	// 监控配置文件变化
@@ -98,11 +98,11 @@ func resolvePath(path []string) string {
 }
 
 // GetConfig 获得配置
-func GetConfig() *ConfigS {
-	if configData != nil {
-		return configData
+func GetConfig() *Config {
+	if configStruct != nil {
+		return configStruct
 	}
 
 	Init("")
-	return configData
+	return configStruct
 }
