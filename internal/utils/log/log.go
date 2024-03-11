@@ -17,6 +17,11 @@ func NewLog() *zap.SugaredLogger {
 
 func Init() {
 	logger, _ = zap.NewProduction()
-	defer logger.Sync() // flushes buffer, if any
+	defer func(logger *zap.Logger) {
+		err := logger.Sync()
+		if err != nil {
+
+		}
+	}(logger) // flushes buffer, if any
 	sugar = logger.Sugar()
 }

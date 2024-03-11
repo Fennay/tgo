@@ -21,23 +21,26 @@ type Response struct {
 
 // Ok 成功返回
 func Ok(c *gin.Context, msg string, data interface{}) {
-	body := &Response{
+	if msg == "" {
+		msg = ecode.ErrorMsg[ecode.Ok]
+	}
+	c.AbortWithStatusJSON(http.StatusOK, &Response{
 		Code: ecode.Ok,
 		Msg:  msg,
 		Data: data,
-	}
-	c.AbortWithStatusJSON(http.StatusOK, body)
+	})
 	return
 }
 
 // Fail 失败返回
 func Fail(c *gin.Context, code int, msg string, data interface{}) {
-
-	body := &Response{
+	if msg == "" {
+		msg = ecode.ErrorMsg[code]
+	}
+	c.AbortWithStatusJSON(http.StatusOK, &Response{
 		Code: code,
 		Msg:  msg,
 		Data: data,
-	}
-	c.AbortWithStatusJSON(http.StatusOK, body)
+	})
 	return
 }
