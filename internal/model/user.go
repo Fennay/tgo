@@ -9,8 +9,7 @@ type User struct {
 	Phone    string `json:"phone" form:"phone"`
 	Email    string `json:"email" form:"email"`
 	Sex      uint8  `json:"sex" form:"sex"`
-	Status   uint8  `json:"status" form:"status"`
-	Sort     int    `json:"sort"`
+	ExtendField
 }
 
 // TableName 设置表名称

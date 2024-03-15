@@ -13,10 +13,10 @@ type Base struct {
 const OPEN_STATUS = 1
 const CLOSE_STATUS = 0
 
-// DEAULT_SORT 默认排序
-const DEAULT_SORT = 999999
+// DEFAULT_SORT 默认排序
+const DEFAULT_SORT = 999999
 
-type Status struct {
-	Status int `json:"status"` //
-	Sort   int `json:"sort"`   //
+type ExtendField struct {
+	Status uint8 `json:"status"` //
+	Sort   int   `json:"sort"`   //
 }
