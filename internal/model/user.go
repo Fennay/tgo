@@ -1,12 +1,8 @@
-package user
-
-import (
-	commonModel "github.com/fennay/tgo/internal/model"
-)
+package model
 
 // User model struct
 type User struct {
-	commonModel.Base
+	Base
 	Username string `json:"username" form:"username"`
 	Nickname string `json:"nickname" form:"nickname"`
 	Password string `json:"password" form:"password"`
