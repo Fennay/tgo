@@ -13,7 +13,7 @@ const (
 	ErrorUsernameOrPassword = 10001
 )
 
-// ErrorMsg ecodeMsg
+// ErrorMsg eCodeMsg
 var ErrorMsg = map[int]string{
 	ErrorUsernameOrPassword: "用户名或密码错误",
 }
