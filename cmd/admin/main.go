@@ -4,6 +4,7 @@ import (
 	"fmt"
 	adminRouter "github.com/fennay/tgo/internal/app/admin/router"
 	"github.com/fennay/tgo/internal/utils/config"
+	"github.com/fennay/tgo/internal/utils/log"
 	"github.com/gin-gonic/gin"
 )
 
@@ -12,6 +13,9 @@ func main() {
 	// 初始化配置
 	config.Init()
 	conf := config.GetConfig()
+
+	// 初始化log配置
+	log.Init()
 
 	// 初始化 gin
 	g := gin.New()
@@ -23,6 +27,7 @@ func main() {
 	url := fmt.Sprintf("%s:%d", conf.Http.URL, conf.Http.Port)
 	err := g.Run(url)
 	if err != nil {
-		return
+		log.NewLog().Panic("serverRunErr", err)
+		panic(err)
 	}
 }
