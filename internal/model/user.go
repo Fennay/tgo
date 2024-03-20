@@ -16,3 +16,15 @@ type User struct {
 func (User) TableName() string {
 	return "user"
 }
+
+// AdminUserSession 管理员用户 session 结构
+type AdminUserSession struct {
+	UserID      int    `json:"userId"`   //
+	Username    string `json:"username"` //
+	Nickname    string `json:"nickname"` //
+	Phone       string `json:"phone"`    //
+	Email       string `json:"email"`    //
+	Sex         uint8  `json:"sex"`      //
+	ExtendField        //
+
+}
