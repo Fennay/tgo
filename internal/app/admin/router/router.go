@@ -1,11 +1,9 @@
 package router
 
 import (
+	"github.com/fennay/tgo/internal/app/admin/controller/user"
 	"github.com/fennay/tgo/internal/middleware"
-	"github.com/fennay/tgo/internal/utils/log"
-	"github.com/fennay/tgo/internal/utils/response"
 	"github.com/gin-gonic/gin"
-	"time"
 )
 
 func Init(engine *gin.Engine) {
@@ -20,17 +18,10 @@ func Init(engine *gin.Engine) {
 	// 用户
 	v1User := v1.Group("user")
 	{
-		v1User.GET("", func(c *gin.Context) {
-			// 接口返回测试
-			log.NewLog().Infow("failed to fetch URL",
-				// Structured context as loosely typed key-value pairs.
-				"url", "https://www.baidu.com",
-				"attempt", 3,
-				"backoff", time.Second,
-			)
-			response.Ok(c, "11111111", "222222222")
-			return
-		})
+		v1User.GET("", user.List)
+		v1User.POST("", user.Save)
+		v1User.DELETE("", user.Delete)
+		v1User.GET("{id}", user.Detail)
 	}
 
 }
