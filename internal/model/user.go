@@ -26,5 +26,4 @@ type AdminUserSession struct {
 	Email       string `json:"email"`    //
 	Sex         uint8  `json:"sex"`      //
 	ExtendField        //
-
 }

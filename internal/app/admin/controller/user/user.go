@@ -1,21 +1,26 @@
 package user
 
-func List() {
+import (
+	"github.com/fennay/tgo/internal/utils/response"
+	"github.com/gin-gonic/gin"
+)
 
+func List(c *gin.Context) {
+	response.Ok(c, "", nil)
+	return
 }
 
-func Add() {
-
+func Save(c *gin.Context) {
+	response.Ok(c, "", nil)
+	return
 }
 
-func Save() {
-
+func Delete(c *gin.Context) {
+	response.Ok(c, "", nil)
+	return
 }
 
-func Delete() {
-
-}
-
-func Detail() {
-
+func Detail(c *gin.Context) {
+	response.Ok(c, "", nil)
+	return
 }
