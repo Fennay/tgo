@@ -5,7 +5,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func List(c *gin.Context) {
+func PageList(c *gin.Context) {
+
 	response.Ok(c, "", nil)
 	return
 }

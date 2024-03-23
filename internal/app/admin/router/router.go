@@ -18,7 +18,7 @@ func Init(engine *gin.Engine) {
 	// 用户
 	v1User := v1.Group("user")
 	{
-		v1User.GET("", user.List)
+		v1User.GET("", user.PageList)
 		v1User.POST("", user.Save)
 		v1User.DELETE("", user.Delete)
 		v1User.GET("{id}", user.Detail)
