@@ -19,7 +19,7 @@ func Save(c *gin.Context) {
 
 func Delete(c *gin.Context) {
 
-	response.Ok(c, "", nil)
+	response.Fail(c, 400, "", nil)
 	return
 }
 
