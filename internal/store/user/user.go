@@ -1,7 +1,7 @@
 package user
 
 func PageList() {
-
+	// store.Master().Model(&model.User{}).Get()
 }
 
 func Add() {
