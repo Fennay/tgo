@@ -12,7 +12,7 @@ type PageListResp struct {
 }
 
 type Pagination struct {
-	Page     int `json:"page"`     // 当前页码
-	PageSize int `json:"pageSize"` // 每页数量
-	Total    int `json:"total"`    // 总数量
+	Page     int   `json:"page"`     // 当前页码
+	PageSize int   `json:"pageSize"` // 每页数量
+	Total    int64 `json:"total"`    // 总数量
 }
