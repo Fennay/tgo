@@ -6,9 +6,9 @@ type IDResp struct {
 
 // PageListResp 分页返回内容
 type PageListResp struct {
-	Pagination Pagination    `json:"pagination"` // 分页数据信息
-	List       []interface{} `json:"list"`       // 数据内容
-	Query      []interface{} `json:"query"`      // 查询参数
+	Pagination Pagination  `json:"pagination"` // 分页数据信息
+	List       interface{} `json:"list"`       // 数据内容
+	Query      interface{} `json:"query"`      // 查询参数
 }
 
 type Pagination struct {
