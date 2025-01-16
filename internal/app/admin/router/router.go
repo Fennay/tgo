@@ -2,13 +2,13 @@ package router
 
 import (
 	"github.com/fennay/tgo/internal/app/admin/controller/user"
-	"github.com/fennay/tgo/internal/middleware"
+	commonMiddleware "github.com/fennay/tgo/internal/middleware"
 	"github.com/gin-gonic/gin"
 )
 
 func Init(engine *gin.Engine) {
 	// 开启Session
-	engine.Use(middleware.StartSession())
+	engine.Use(commonMiddleware.StartSession())
 
 	// 这里注册全局结构体存储session
 	// gob.Register(oauth2.Token{})
