@@ -25,6 +25,7 @@ func PageList(c *gin.Context) {
 }
 
 func Save(c *gin.Context) {
+	user.Save()
 	response.Ok(c, "", nil)
 	return
 }
