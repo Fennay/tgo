@@ -25,19 +25,19 @@ func PageList(page int, pageSize int) (list []*model.User, pagination resp.Pagin
 	return list, pagination
 }
 
-func Add(user model.User) {
+func Add(user *model.User) {
 	store.Master().Model(&model.User{}).Create(user)
 }
 
-func Save(user model.User) {
+func Save(user *model.User) {
 	store.Master().Model(&model.User{}).Save(user)
 }
 
-func Delete(user model.User) {
+func Delete(user *model.User) {
 	store.Master().Model(&model.User{}).Delete(user)
 }
 
-func Detail(userId int) (user model.User) {
+func Detail(userId int) (user *model.User) {
 	store.Master().Model(&model.User{}).Where("id=?", userId).First(user)
 	return user
 }

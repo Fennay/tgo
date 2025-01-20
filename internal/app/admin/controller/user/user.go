@@ -1,6 +1,7 @@
 package user
 
 import (
+	"github.com/fennay/tgo/internal/model"
 	"github.com/fennay/tgo/internal/store/user"
 	"github.com/fennay/tgo/internal/utils/response"
 	"github.com/fennay/tgo/internal/vo/resp"
@@ -25,7 +26,15 @@ func PageList(c *gin.Context) {
 }
 
 func Save(c *gin.Context) {
-	user.Save()
+
+	user.Save(&model.User{
+		Username: "",
+		Nickname: "",
+		Password: "",
+		Phone:    "",
+		Email:    "",
+		Sex:      0,
+	})
 	response.Ok(c, "", nil)
 	return
 }
