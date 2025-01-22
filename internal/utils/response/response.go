@@ -33,10 +33,8 @@ func Ok(c *gin.Context, msg string, data interface{}) {
 }
 
 // Fail 失败返回
-func Fail(c *gin.Context, code int, msg string, data interface{}) {
-	if msg == "" {
-		msg = ecode.ErrorMsg[code]
-	}
+func Fail(c *gin.Context, code int, data interface{}) {
+	msg := ecode.ErrorMsg[code]
 	c.AbortWithStatusJSON(http.StatusOK, &Response{
 		Code: code,
 		Msg:  msg,

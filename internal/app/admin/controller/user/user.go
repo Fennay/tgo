@@ -3,7 +3,9 @@ package user
 import (
 	"github.com/fennay/tgo/internal/model"
 	"github.com/fennay/tgo/internal/store/user"
+	"github.com/fennay/tgo/internal/utils/ecode"
 	"github.com/fennay/tgo/internal/utils/response"
+	userVo "github.com/fennay/tgo/internal/vo/req/user"
 	"github.com/fennay/tgo/internal/vo/resp"
 	"github.com/gin-gonic/gin"
 )
@@ -26,11 +28,16 @@ func PageList(c *gin.Context) {
 }
 
 func Save(c *gin.Context) {
-
+	userReqParam := userVo.CreateReq{}
+	err := c.BindJSON(userReqParam)
+	if err != nil {
+		response.Fail(c, ecode.BadRequest, nil)
+		return
+	}
 	user.Save(&model.User{
-		Username: "",
+		Username: userReqParam.Username,
 		Nickname: "",
-		Password: "",
+		Password: userReqParam.Password,
 		Phone:    "",
 		Email:    "",
 		Sex:      0,
@@ -40,8 +47,7 @@ func Save(c *gin.Context) {
 }
 
 func Delete(c *gin.Context) {
-
-	response.Fail(c, 400, "", nil)
+	response.Fail(c, ecode.BadRequest, nil)
 	return
 }
 
