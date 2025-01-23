@@ -40,7 +40,7 @@ func Save(c *gin.Context) {
 		Password: userReqParam.Password,
 		Phone:    "",
 		Email:    "",
-		Sex:      0,
+		Sex:      model.OTHER_GENDER,
 	})
 	response.Ok(c, "", nil)
 	return

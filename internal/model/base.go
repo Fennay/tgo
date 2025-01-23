@@ -13,6 +13,10 @@ type Base struct {
 const OPEN_STATUS = 1
 const CLOSE_STATUS = 0
 
+const MALE_GENDER = 1   // 男
+const FEMALE_GENDER = 2 // 女
+const OTHER_GENDER = 0  // 其他
+
 // DEFAULT_SORT 默认排序
 const DEFAULT_SORT = 999999
 
