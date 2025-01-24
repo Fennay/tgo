@@ -47,11 +47,17 @@ func Save(c *gin.Context) {
 }
 
 func Delete(c *gin.Context) {
+	id := c.GetInt("id")
+	user.Delete(&model.User{
+		Base: model.Base{ID: id},
+	})
 	response.Fail(c, ecode.BadRequest, nil)
 	return
 }
 
 func Detail(c *gin.Context) {
+	id := c.GetInt("id")
+	user.Detail(id)
 	response.Ok(c, "", nil)
 	return
 }
