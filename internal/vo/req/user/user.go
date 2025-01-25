@@ -8,3 +8,8 @@ type CreateReq struct {
 	Email    string `json:"email"`
 	Sex      int    `json:"sex"` //
 }
+
+type LoginReq struct {
+	Username string `json:"username"` //
+	Password string `json:"password"`
+}
