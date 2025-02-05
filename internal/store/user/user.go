@@ -41,3 +41,8 @@ func Detail(userId int) (user *model.User) {
 	store.Master().Model(&model.User{}).Where("id=?", userId).First(user)
 	return user
 }
+
+func DetailByUsername(username string) (user *model.User) {
+	store.Master().Model(&model.User{}).Where("username=?", username).First(user)
+	return user
+}

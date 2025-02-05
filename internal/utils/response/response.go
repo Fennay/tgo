@@ -20,10 +20,8 @@ type Response struct {
 }
 
 // Ok 成功返回
-func Ok(c *gin.Context, msg string, data interface{}) {
-	if msg == "" {
-		msg = ecode.ErrorMsg[ecode.Ok]
-	}
+func Ok(c *gin.Context, data interface{}) {
+	msg := ecode.ErrorMsg[ecode.Ok]
 	c.AbortWithStatusJSON(http.StatusOK, &Response{
 		Code: ecode.Ok,
 		Msg:  msg,

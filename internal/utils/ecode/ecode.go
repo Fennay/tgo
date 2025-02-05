@@ -15,5 +15,9 @@ const (
 
 // ErrorMsg eCodeMsg
 var ErrorMsg = map[int]string{
+	Ok:                      "Ok",
+	BadRequest:              "Bad Request",
+	NotFound:                "Not Found",
+	SystemErr:               "System Error",
 	ErrorUsernameOrPassword: "用户名或密码错误",
 }
