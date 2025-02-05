@@ -15,7 +15,8 @@ func Init() *gorm.DB {
 	}
 
 	dbConfig := config.GetConfig().DB
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%scharset=utf8mb4&parseTime=True&loc=Local", dbConfig.User, dbConfig.Password, dbConfig.URL, dbConfig.Port, dbConfig.Database)
+
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local", dbConfig.User, dbConfig.Password, dbConfig.URL, dbConfig.Port, dbConfig.Database)
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")

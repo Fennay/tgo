@@ -5,11 +5,11 @@ http:
 
 db:
   dialect: mysql
-  url: 127.0.0.1
+  url: 139.224.208.254
   port: 3306
-  database: test
-  user: root
-  password: 123456
+  database: devops
+  user: mackie
+  password: mackie,
 
 redis:
   url: 127.0.0.1

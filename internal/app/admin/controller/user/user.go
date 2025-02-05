@@ -23,7 +23,7 @@ func PageList(c *gin.Context) {
 			"pageSize": pageSize,
 		},
 	}
-	response.Ok(c, "", data)
+	response.Ok(c, data)
 	return
 }
 
@@ -42,7 +42,7 @@ func Save(c *gin.Context) {
 		Email:    "",
 		Sex:      model.OTHER_GENDER,
 	})
-	response.Ok(c, "", nil)
+	response.Ok(c, nil)
 	return
 }
 
@@ -58,6 +58,6 @@ func Delete(c *gin.Context) {
 func Detail(c *gin.Context) {
 	id := c.GetInt("id")
 	user.Detail(id)
-	response.Ok(c, "", nil)
+	response.Ok(c, nil)
 	return
 }

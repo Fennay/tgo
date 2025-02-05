@@ -15,6 +15,7 @@ func Init(engine *gin.Engine) {
 
 	v1 := engine.Group("/api/v1")
 
+	v1.Any("login", user.Login)
 	// 用户
 	v1User := v1.Group("user")
 	{

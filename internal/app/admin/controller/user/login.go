@@ -3,6 +3,7 @@ package user
 import (
 	userStore "github.com/fennay/tgo/internal/store/user"
 	"github.com/fennay/tgo/internal/utils/ecode"
+	"github.com/fennay/tgo/internal/utils/lib"
 	"github.com/fennay/tgo/internal/utils/response"
 	"github.com/fennay/tgo/internal/vo/req/user"
 	"github.com/gin-gonic/gin"
@@ -10,18 +11,19 @@ import (
 
 func Login(c *gin.Context) {
 	var userLoginReq user.LoginReq
-	err := c.BindJSON(&userLoginReq)
+	err := c.ShouldBind(&userLoginReq)
 	if err != nil {
 		response.Fail(c, ecode.BadRequest, nil)
 		return
 	}
+
 	userDetail := userStore.DetailByUsername(userLoginReq.Username)
 	if userDetail == nil {
 		response.Fail(c, ecode.ErrorUsernameOrPassword, nil)
 		return
 	}
 
-	if userDetail.Password != userLoginReq.Password {
+	if !lib.PasswordVerify(userLoginReq.Password, userDetail.Password) {
 		response.Fail(c, ecode.ErrorUsernameOrPassword, nil)
 		return
 	}

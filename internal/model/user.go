@@ -13,9 +13,9 @@ type User struct {
 }
 
 // TableName 设置表名称
-func (User) TableName() string {
-	return "user"
-}
+// func (User) TableName() string {
+// 	return "users"
+// }
 
 // AdminUserSession 管理员用户 session 结构
 type AdminUserSession struct {
