@@ -4,6 +4,7 @@ go 1.20
 
 require (
 	github.com/gin-gonic/gin v1.9.0
+	github.com/google/uuid v1.6.0
 	github.com/spf13/viper v1.18.2
 	go.uber.org/zap v1.24.0
 	golang.org/x/crypto v0.32.0
