@@ -13,5 +13,6 @@ func Request() gin.HandlerFunc {
 			requestId = uuid.New().String()
 			c.Header("request-id", requestId)
 		}
+		c.Next()
 	}
 }

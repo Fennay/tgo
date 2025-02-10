@@ -7,10 +7,12 @@ import (
 
 func Response() gin.HandlerFunc {
 	return func(c *gin.Context) {
+		c.Next()
+
 		requestId := c.GetHeader("request-id")
 		if requestId == "" {
 			requestId = uuid.New().String()
-			c.Header("request-id", requestId)
 		}
+		c.Header("request-id", requestId)
 	}
 }

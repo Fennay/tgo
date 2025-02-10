@@ -9,6 +9,8 @@ import (
 func Init(engine *gin.Engine) {
 	// 开启Session
 	engine.Use(commonMiddleware.StartSession())
+	engine.Use(commonMiddleware.Request())
+	engine.Use(commonMiddleware.Response())
 
 	// 这里注册全局结构体存储session
 	// gob.Register(oauth2.Token{})
