@@ -1,6 +1,7 @@
 package router
 
 import (
+	"encoding/gob"
 	"github.com/fennay/tgo/internal/middleware"
 	"github.com/gin-gonic/gin"
 )
@@ -10,7 +11,7 @@ func Init(engine *gin.Engine) {
 	engine.Use(middleware.StartSession())
 
 	// 这里注册全局结构体存储session
-	//gob.Register(oauth2.Token{})
+	gob.Register(oauth2.Token{})
 
 	v1 := engine.Group("/api/v1")
 

@@ -23,6 +23,8 @@ func main() {
 	// 加载路由
 	adminRouter.Init(g)
 
+	// 初始化session
+
 	// 启动服务
 	url := fmt.Sprintf("%s:%d", conf.Http.URL, conf.Http.Port)
 	err := g.Run(url)

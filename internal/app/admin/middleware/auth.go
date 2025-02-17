@@ -7,6 +7,6 @@ import (
 // Auth 验证
 func Auth() gin.HandlerFunc {
 	return func(c *gin.Context) {
-
+		// adminUser :=
 	}
 }
